@@ -17,7 +17,6 @@ import circleArrow from '../assets/images/circle arrow.png'
 import test from '../assets/images/test.png'
 import bgtest from '../assets/images/bgtest.jpg'
 import gsap from "gsap";
-import SplitText from 'gsap-trial/SplitText';
 
 const App = () => {
     useEffect(() => {
@@ -33,29 +32,24 @@ const App = () => {
         )
         gsap.fromTo(
             ".fade-in",
-            { y: 120, opacity: 0},
-            { y: 0, opacity: 1, duration: 1.5, delay: 0, ease: "back.inOut"  }
+            { y: 120, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.5, delay: 0, ease: "back.inOut" }
         )
         gsap.fromTo(
             ".fade",
-            { opacity: 0},
-            { opacity: 1, duration: 3, delay: 0, ease: "back.inOut"  }
+            { opacity: 0 },
+            { opacity: 1, duration: 3, delay: 0, ease: "back.inOut" }
         )
         gsap.fromTo(
             ".fade-left",
-            { x:-120, opacity: 0},
-            { x:0, opacity: 1, duration: 1.5, delay: 2, ease: "back.inOut"  }
+            { x: -120, opacity: 0 },
+            { x: 0, opacity: 1, duration: 1.5, delay: 2, ease: "back.inOut" }
         )
-        let mySplitText = new SplitText(".split", {type: "chars"})
-        let chars = mySplitText.chars;
-        gsap.from(chars, {
-            yPercent: 100,
-            opacity: 0,
-            stagger: 0.04,
-            ease: "back.out",
-            duration: 1,
-            delay: 0.4
-        })
+        gsap.fromTo(
+            ".fade-right",
+            { x: 120, opacity: 0 },
+            { x: 0, opacity: 1, duration: 1.5, delay: 2, ease: "back.inOut" }
+        )
     }, [])
 
     const [activeItem, setActiveItem] = useState("")
@@ -77,8 +71,8 @@ const App = () => {
 
                 <div className='flex flex-col items-start gap-9 -mt-12'>
                     <div className={`text-[5.5rem] ${isDarkMode ? "text-white" : "text-black"} flex flex-col items-start leading-[6rem] tracking-[0.15rem] font-bold`}>
-                        <h1 className='split'>Organic</h1>
-                        <div className='relative'>
+                        <h1 className='fade-delay'>Organic</h1>
+                        <div className='fade-right relative'>
                             <h1 className='z-[992] relative split'>kohaku</h1>
                             <img className={`absolute -top-6 -right-2 z-[991] fade ${isDarkMode ? "brightness-75" : "brightness-150"}`} src={test} width={'180px'} alt="" />
                             <img className={`absolute -top-6 -left-2 z-[991] fade ${isDarkMode ? "brightness-75" : "brightness-150"}`} src={test} width={'180px'} alt="" />
